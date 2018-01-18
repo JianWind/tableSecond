@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UITableViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
+@property (strong,nonatomic) NSMutableArray *datalist;
+@property (strong,nonatomic) UIView *myview;
+//@property (strong,nonatomic) IBOutlet UITableView *table;
 
 @end
 
