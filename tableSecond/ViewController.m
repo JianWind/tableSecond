@@ -119,7 +119,7 @@
         [page2 setValue:self forKey:@"delegate1"];
         
     }else if ([[segue identifier] isEqualToString:@"btn2Segue"]){
-              NSLog(@"11111");
+        NSLog(@"11111");
     }
 }
 //设置rowHeight
@@ -226,11 +226,18 @@
 
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     UIImage *image = [[UIImage alloc]init];
+    NSString *localurl = [[NSString alloc]init];
     //获取到了选择的图片
+    if (@available(iOS 11.0, *)) {
+        localurl = [info objectForKey:UIImagePickerControllerImageURL];
+    } else {
+        localurl = nil;
+    }
     image = [info objectForKey:UIImagePickerControllerOriginalImage];
     //此方法负责退出此页面（图片选取页面）如果不退出没办法进入新的页面
     [picker dismissViewControllerAnimated:YES completion:nil];
     Snow001 *snow = [[Snow001 alloc]init];
+    snow.imagePath = localurl;
     snow.image = image;
     [self.navigationController pushViewController:snow animated:YES];
 }

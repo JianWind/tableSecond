@@ -17,10 +17,10 @@
 
 @interface Snow001 : UIViewController
 
-@property (strong,nonatomic) UIImage *image;
+@property (copy,nonatomic) NSString *imagePath;
 @property (strong,nonatomic) UIImageView *imageView;
 @property (weak, nonatomic) NSString *string1;
-
+@property (strong,nonatomic) UIImage *image;
 // 采用上面协议的物件
 @property (weak) id <Page2Delegate>delegate1;
 
